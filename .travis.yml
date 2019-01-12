@@ -4,10 +4,8 @@ services:
 
 before_install:
   - docker build -t fangweiwei/complex-docker -f ./client/Dockerfile.dev ./client
-  - docker build myotherproject
 
 script:
-  - docker run myotherproject runmytests
   - docker run fangweiwei/complex-docker npm test -- --coverage
 
 after_success:
